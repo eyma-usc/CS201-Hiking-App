@@ -1,14 +1,15 @@
+package database; // Ensure this matches your actual package structure
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class  Databaseinitializer {
+public class DatabaseInitial {
 
-    private static final String URL = "jdbc:mysql://localhost/YourDatabase?user=root&password=YourPassword";
+    private static final String URL = "jdbc:mysql://localhost/Factory?user=root&password=Ethanchiu0520";
     private static final String USERNAME = "root";
-    private static final String PASSWORD = "YourPassword";
+    private static final String PASSWORD = "Ethanchiu0520";
 
     public static void main(String[] args) {
         addUsers();
