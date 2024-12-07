@@ -1,0 +1,902 @@
+[
+    {
+        "trailID": "trail_001",
+        "name": "Eagle Peak Trail 39",
+        "location": "Zion National Park, UT",
+        "difficulty": "easy",
+        "length": 8.31,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_002",
+        "name": "Twilight Trail 9",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "easy",
+        "length": 14.1,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_003",
+        "name": "Summit Pass 79",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 12.03,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_004",
+        "name": "Bear Ridge Trail 28",
+        "location": "Acadia National Park, ME",
+        "difficulty": "hard",
+        "length": 14.04,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_005",
+        "name": "Cedar Loop 24",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "easy",
+        "length": 3.17,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_006",
+        "name": "Lost Creek Trail 3",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 13.8,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_007",
+        "name": "Meadow View 34",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 7.48,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_008",
+        "name": "Twilight Trail 100",
+        "location": "Grand Canyon, AZ",
+        "difficulty": "hard",
+        "length": 3.08,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_009",
+        "name": "Summit Pass 46",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "hard",
+        "length": 7.16,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_010",
+        "name": "Eagle Peak Trail 64",
+        "location": "Zion National Park, UT",
+        "difficulty": "moderate",
+        "length": 11.28,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_011",
+        "name": "Sunrise Trail 35",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "moderate",
+        "length": 3.97,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_012",
+        "name": "Twilight Trail 98",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "hard",
+        "length": 4.06,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_013",
+        "name": "Cedar Loop 38",
+        "location": "Grand Canyon, AZ",
+        "difficulty": "hard",
+        "length": 1.55,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_014",
+        "name": "Eagle Peak Trail 88",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 7.06,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_015",
+        "name": "Sunrise Trail 16",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 9.05,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_016",
+        "name": "Whispering Pines 92",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 6.92,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_017",
+        "name": "Sunrise Trail 55",
+        "location": "Yellowstone National Park, WY",
+        "difficulty": "hard",
+        "length": 13.08,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_018",
+        "name": "Eagle Peak Trail 89",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "easy",
+        "length": 5.19,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_019",
+        "name": "Twilight Trail 2",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "hard",
+        "length": 9.95,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_020",
+        "name": "Whispering Pines 62",
+        "location": "Olympic National Park, WA",
+        "difficulty": "easy",
+        "length": 7.27,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_021",
+        "name": "Twilight Trail 10",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "hard",
+        "length": 4.27,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_022",
+        "name": "Eagle Peak Trail 19",
+        "location": "Everglades National Park, FL",
+        "difficulty": "easy",
+        "length": 9.24,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_023",
+        "name": "Summit Pass 25",
+        "location": "Everglades National Park, FL",
+        "difficulty": "easy",
+        "length": 3.92,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_024",
+        "name": "Hidden Canyon 45",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "moderate",
+        "length": 14.12,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_025",
+        "name": "Hidden Canyon 87",
+        "location": "Yellowstone National Park, WY",
+        "difficulty": "easy",
+        "length": 8.55,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_026",
+        "name": "Summit Pass 44",
+        "location": "Zion National Park, UT",
+        "difficulty": "hard",
+        "length": 5.1,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_027",
+        "name": "Lost Creek Trail 55",
+        "location": "Yellowstone National Park, WY",
+        "difficulty": "easy",
+        "length": 12.56,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_028",
+        "name": "Sunrise Trail 52",
+        "location": "Everglades National Park, FL",
+        "difficulty": "moderate",
+        "length": 6.48,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_029",
+        "name": "Twilight Trail 15",
+        "location": "Everglades National Park, FL",
+        "difficulty": "moderate",
+        "length": 2.87,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_030",
+        "name": "Sunrise Trail 76",
+        "location": "Acadia National Park, ME",
+        "difficulty": "easy",
+        "length": 11.08,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_031",
+        "name": "Meadow View 46",
+        "location": "Acadia National Park, ME",
+        "difficulty": "moderate",
+        "length": 7.9,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_032",
+        "name": "Twilight Trail 69",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 9.58,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_033",
+        "name": "Eagle Peak Trail 28",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "easy",
+        "length": 5.66,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_034",
+        "name": "Eagle Peak Trail 1",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "hard",
+        "length": 4.06,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_035",
+        "name": "Twilight Trail 77",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 7.45,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_036",
+        "name": "Bear Ridge Trail 64",
+        "location": "Acadia National Park, ME",
+        "difficulty": "hard",
+        "length": 10.64,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_037",
+        "name": "Bear Ridge Trail 7",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 10.22,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_038",
+        "name": "Eagle Peak Trail 23",
+        "location": "Zion National Park, UT",
+        "difficulty": "hard",
+        "length": 13.38,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_039",
+        "name": "Eagle Peak Trail 22",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 5.11,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_040",
+        "name": "Twilight Trail 10",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 11.15,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_041",
+        "name": "Whispering Pines 97",
+        "location": "Zion National Park, UT",
+        "difficulty": "hard",
+        "length": 4.89,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_042",
+        "name": "Whispering Pines 56",
+        "location": "Acadia National Park, ME",
+        "difficulty": "easy",
+        "length": 12.92,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_043",
+        "name": "Whispering Pines 45",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "easy",
+        "length": 8.28,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_044",
+        "name": "Lost Creek Trail 96",
+        "location": "Everglades National Park, FL",
+        "difficulty": "easy",
+        "length": 12.79,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_045",
+        "name": "Sunrise Trail 98",
+        "location": "Grand Canyon, AZ",
+        "difficulty": "easy",
+        "length": 7.73,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_046",
+        "name": "Cedar Loop 32",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "hard",
+        "length": 4.51,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_047",
+        "name": "Bear Ridge Trail 67",
+        "location": "Olympic National Park, WA",
+        "difficulty": "easy",
+        "length": 10.92,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_048",
+        "name": "Whispering Pines 65",
+        "location": "Acadia National Park, ME",
+        "difficulty": "hard",
+        "length": 4.03,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_049",
+        "name": "Lost Creek Trail 67",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 2.83,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_050",
+        "name": "Twilight Trail 59",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "hard",
+        "length": 9.39,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_051",
+        "name": "Hidden Canyon 28",
+        "location": "Acadia National Park, ME",
+        "difficulty": "moderate",
+        "length": 3.54,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_052",
+        "name": "Lost Creek Trail 84",
+        "location": "Grand Canyon, AZ",
+        "difficulty": "moderate",
+        "length": 13.16,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_053",
+        "name": "Cedar Loop 28",
+        "location": "Acadia National Park, ME",
+        "difficulty": "easy",
+        "length": 13.96,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_054",
+        "name": "Cedar Loop 42",
+        "location": "Everglades National Park, FL",
+        "difficulty": "hard",
+        "length": 2.55,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_055",
+        "name": "Hidden Canyon 31",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 6.22,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_056",
+        "name": "Twilight Trail 81",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "hard",
+        "length": 0.86,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_057",
+        "name": "Twilight Trail 48",
+        "location": "Acadia National Park, ME",
+        "difficulty": "moderate",
+        "length": 4.42,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_058",
+        "name": "Hidden Canyon 44",
+        "location": "Yellowstone National Park, WY",
+        "difficulty": "moderate",
+        "length": 4.31,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_059",
+        "name": "Summit Pass 23",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 10.39,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_060",
+        "name": "Hidden Canyon 69",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 6.56,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_061",
+        "name": "Bear Ridge Trail 32",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "easy",
+        "length": 12.37,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_062",
+        "name": "Bear Ridge Trail 24",
+        "location": "Zion National Park, UT",
+        "difficulty": "easy",
+        "length": 6.61,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_063",
+        "name": "Bear Ridge Trail 92",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "easy",
+        "length": 1.15,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_064",
+        "name": "Lost Creek Trail 23",
+        "location": "Yellowstone National Park, WY",
+        "difficulty": "hard",
+        "length": 13.81,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_065",
+        "name": "Hidden Canyon 6",
+        "location": "Acadia National Park, ME",
+        "difficulty": "moderate",
+        "length": 8.72,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_066",
+        "name": "Twilight Trail 88",
+        "location": "Zion National Park, UT",
+        "difficulty": "moderate",
+        "length": 6.69,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_067",
+        "name": "Whispering Pines 68",
+        "location": "Olympic National Park, WA",
+        "difficulty": "easy",
+        "length": 11.62,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_068",
+        "name": "Whispering Pines 2",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "hard",
+        "length": 14.95,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_069",
+        "name": "Lost Creek Trail 71",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "hard",
+        "length": 8.45,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_070",
+        "name": "Twilight Trail 29",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 10.0,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_071",
+        "name": "Sunrise Trail 17",
+        "location": "Everglades National Park, FL",
+        "difficulty": "hard",
+        "length": 6.53,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_072",
+        "name": "Bear Ridge Trail 95",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "moderate",
+        "length": 12.26,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_073",
+        "name": "Bear Ridge Trail 6",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "moderate",
+        "length": 3.46,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_074",
+        "name": "Lost Creek Trail 83",
+        "location": "Acadia National Park, ME",
+        "difficulty": "hard",
+        "length": 8.71,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_075",
+        "name": "Hidden Canyon 29",
+        "location": "Grand Canyon, AZ",
+        "difficulty": "moderate",
+        "length": 4.79,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_076",
+        "name": "Bear Ridge Trail 24",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 5.81,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_077",
+        "name": "Whispering Pines 19",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "moderate",
+        "length": 14.71,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_078",
+        "name": "Twilight Trail 87",
+        "location": "Olympic National Park, WA",
+        "difficulty": "easy",
+        "length": 0.92,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_079",
+        "name": "Eagle Peak Trail 48",
+        "location": "Yellowstone National Park, WY",
+        "difficulty": "hard",
+        "length": 8.28,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_080",
+        "name": "Hidden Canyon 57",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 9.88,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_081",
+        "name": "Lost Creek Trail 99",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "moderate",
+        "length": 8.23,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_082",
+        "name": "Hidden Canyon 81",
+        "location": "Zion National Park, UT",
+        "difficulty": "easy",
+        "length": 2.9,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_083",
+        "name": "Lost Creek Trail 38",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "moderate",
+        "length": 4.5,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_084",
+        "name": "Eagle Peak Trail 23",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 1.64,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_085",
+        "name": "Meadow View 55",
+        "location": "Zion National Park, UT",
+        "difficulty": "hard",
+        "length": 3.39,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_086",
+        "name": "Lost Creek Trail 100",
+        "location": "Everglades National Park, FL",
+        "difficulty": "easy",
+        "length": 12.16,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_087",
+        "name": "Sunrise Trail 22",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "easy",
+        "length": 12.94,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_088",
+        "name": "Whispering Pines 5",
+        "location": "Olympic National Park, WA",
+        "difficulty": "moderate",
+        "length": 5.71,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_089",
+        "name": "Summit Pass 4",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 4.74,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_090",
+        "name": "Hidden Canyon 13",
+        "location": "Everglades National Park, FL",
+        "difficulty": "easy",
+        "length": 13.12,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_091",
+        "name": "Lost Creek Trail 88",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 8.38,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_092",
+        "name": "Eagle Peak Trail 35",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "hard",
+        "length": 2.01,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_093",
+        "name": "Lost Creek Trail 50",
+        "location": "Olympic National Park, WA",
+        "difficulty": "easy",
+        "length": 13.47,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_094",
+        "name": "Lost Creek Trail 13",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 9.79,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_095",
+        "name": "Twilight Trail 1",
+        "location": "Mount Rainier National Park, WA",
+        "difficulty": "hard",
+        "length": 0.82,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_096",
+        "name": "Cedar Loop 55",
+        "location": "Rocky Mountain National Park, CO",
+        "difficulty": "easy",
+        "length": 10.32,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_097",
+        "name": "Summit Pass 55",
+        "location": "Zion National Park, UT",
+        "difficulty": "hard",
+        "length": 5.58,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_098",
+        "name": "Hidden Canyon 73",
+        "location": "Olympic National Park, WA",
+        "difficulty": "hard",
+        "length": 7.97,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_099",
+        "name": "Lost Creek Trail 100",
+        "location": "Great Smoky Mountains, TN",
+        "difficulty": "easy",
+        "length": 10.74,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_100",
+        "name": "Eagle Peak Trail 64",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "easy",
+        "length": 7.26,
+        "type": "loop",
+        "dog_friendly": true
+    }
+]
