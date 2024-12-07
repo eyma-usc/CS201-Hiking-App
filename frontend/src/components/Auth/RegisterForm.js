@@ -35,7 +35,7 @@ const RegisterForm = () => {
 
     try {
       // Make registration API call
-      const response = await axios.post("/api/register", formData);
+	  const response = await axios.post("http://localhost:3000/register", formData);
 
       // Show success message
       setMessage("Registration successful! Redirecting to login...");
