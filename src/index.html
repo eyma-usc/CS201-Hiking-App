@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trail Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .trail {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+        .trail h3 {
+            margin: 0;
+            color: #333;
+        }
+        .trail p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trail Search</h1>
+        <form id="search-form">
+            <div class="form-group">
+                <label for="name">Trail Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter trail name">
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="Enter location">
+            </div>
+            <div class="form-group">
+                <label for="difficulty">Difficulty:</label>
+                <select id="difficulty" name="difficulty">
+                    <option value="">Any</option>
+                    <option value="easy">Easy</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="length">Trail Length:</label>
+                <select id="length" name="length">
+                    <option value="">Any</option>
+                    <option value="under 5">Under 5 miles</option>
+                    <option value="5-10">5-10 miles</option>
+                    <option value="over 10">Over 10 miles</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dogFriendly">Dog Friendly:</label>
+                <select id="dogFriendly" name="dogFriendly">
+                    <option value="">Any</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Gather form data
+            const formData = new URLSearchParams(new FormData(event.target));
+
+            // Fetch trail data
+            fetch(`/trails/search?${formData.toString()}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to fetch trails");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    displayResults(data);
+                })
+                .catch(error => {
+                    displayError("An error occurred while fetching trails: " + error.message);
+                });
+        });
+
+        function displayResults(trails) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = ""; // Clear previous results
+
+            if (trails.length === 0) {
+                resultsDiv.textContent = "No trails found.";
+                return;
+            }
+
+            trails.forEach(trail => {
+                const trailDiv = document.createElement('div');
+                trailDiv.classList.add('trail');
+                trailDiv.innerHTML = `
+                    <h3>${trail.name}</h3>
+                    <p><strong>Location:</strong> ${trail.location}</p>
+                    <p><strong>Difficulty:</strong> ${trail.difficulty}</p>
+                    <p><strong>Length:</strong> ${trail.length} miles</p>
+                `;
+                resultsDiv.appendChild(trailDiv);
+            });
+        }
+
+        function displayError(message) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<p class="error">${message}</p>`;
+        }
+    </script>
+</body>
+</html>
