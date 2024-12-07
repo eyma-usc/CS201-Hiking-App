@@ -34,12 +34,10 @@ const RegisterForm = () => {
     if (!validateForm()) return;
 
     try {
-      // Make registration API call
-	  const response = await axios.post("http://localhost:3000/register", formData);
+      const response = await axios.post("/api/register", formData);
 
-      // Show success message
       setMessage("Registration successful! Redirecting to login...");
-      setTimeout(() => navigate("/"), 2000); // Redirect to login page after 2 seconds
+      setTimeout(() => navigate("/"), 2000);
     } catch (error) {
       setMessage("Registration failed. Please try again.");
     }
@@ -51,7 +49,12 @@ const RegisterForm = () => {
       justifyContent="center"
       alignItems="center"
       height="100vh"
-      style={{ backgroundColor: "#004d40" }}
+      style={{
+        backgroundImage: "url('/shutterstock_2485740385.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <Paper
         elevation={3}
@@ -59,6 +62,10 @@ const RegisterForm = () => {
           padding: "30px",
           width: "400px",
           textAlign: "center",
+          background: "linear-gradient(to bottom, #8d5524, #c68642)",
+          borderRadius: "15px",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
+          color: "#fff",
         }}
       >
         <Typography
@@ -66,7 +73,8 @@ const RegisterForm = () => {
           style={{
             marginBottom: "20px",
             fontWeight: "bold",
-            color: "#004d40",
+            color: "#fff",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
           }}
         >
           Join Trail Finder
@@ -81,6 +89,14 @@ const RegisterForm = () => {
             helperText={errors.firstName}
             fullWidth
             margin="normal"
+            InputLabelProps={{ style: { color: "#fff" } }}
+            InputProps={{
+              style: {
+                color: "#fff",
+                backgroundColor: "#6a4115",
+                borderRadius: "5px",
+              },
+            }}
           />
           <TextField
             label="Last Name"
@@ -91,6 +107,14 @@ const RegisterForm = () => {
             helperText={errors.lastName}
             fullWidth
             margin="normal"
+            InputLabelProps={{ style: { color: "#fff" } }}
+            InputProps={{
+              style: {
+                color: "#fff",
+                backgroundColor: "#6a4115",
+                borderRadius: "5px",
+              },
+            }}
           />
           <TextField
             label="Email"
@@ -102,6 +126,14 @@ const RegisterForm = () => {
             helperText={errors.email}
             fullWidth
             margin="normal"
+            InputLabelProps={{ style: { color: "#fff" } }}
+            InputProps={{
+              style: {
+                color: "#fff",
+                backgroundColor: "#6a4115",
+                borderRadius: "5px",
+              },
+            }}
           />
           <TextField
             label="Password"
@@ -113,6 +145,14 @@ const RegisterForm = () => {
             helperText={errors.password}
             fullWidth
             margin="normal"
+            InputLabelProps={{ style: { color: "#fff" } }}
+            InputProps={{
+              style: {
+                color: "#fff",
+                backgroundColor: "#6a4115",
+                borderRadius: "5px",
+              },
+            }}
           />
           <Button
             type="submit"
@@ -120,16 +160,23 @@ const RegisterForm = () => {
             fullWidth
             style={{
               marginTop: "20px",
-              backgroundColor: "#004d40",
+              backgroundColor: "#3e2723",
               color: "#fff",
               padding: "10px",
+              fontSize: "18px",
+              fontWeight: "bold",
+              borderRadius: "5px",
+              textTransform: "none",
             }}
           >
             Create Account
           </Button>
         </form>
         {message && (
-          <Typography color={message.includes("successful") ? "primary" : "error"} style={{ marginTop: "10px" }}>
+          <Typography
+            color={message.includes("successful") ? "primary" : "error"}
+            style={{ marginTop: "10px" }}
+          >
             {message}
           </Typography>
         )}

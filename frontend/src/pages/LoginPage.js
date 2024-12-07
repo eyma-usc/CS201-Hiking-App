@@ -1,23 +1,22 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { TextField, Button, Typography, Box, Paper, Link } from "@mui/material";
+import React, { useState } from 'react';
+import { TextField, Button, Typography, Box, Paper } from '@mui/material';
 
-const LoginPage = () => {
-  const [formData, setFormData] = useState({ username: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
+const LoginForm = ({ onLogin }) => {
+  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate login
-    if (formData.username === "guest" && formData.password === "guest") {
-      navigate("/dashboard"); // Navigate to dashboard
-    } else {
-      setErrorMessage("Invalid credentials. Please try again.");
+    try {
+      // Simulate successful login response
+      const role = 'user'; // Replace with actual role logic
+      onLogin(role); // Inform parent component of successful login
+    } catch (error) {
+      setMessage('Login failed. Please try again.');
     }
   };
 
@@ -27,21 +26,18 @@ const LoginPage = () => {
       justifyContent="center"
       alignItems="center"
       height="100vh"
-      style={{ backgroundColor: "#004d40" }}
+      style={{ backgroundColor: '#f4f4f4' }}
     >
       <Paper
         elevation={3}
         style={{
-          padding: "30px",
-          width: "400px",
-          textAlign: "center",
+          padding: '30px',
+          width: '400px',
+          textAlign: 'center',
         }}
       >
-        <Typography
-          variant="h3"
-          style={{ marginBottom: "20px", fontWeight: "bold", color: "#004d40" }}
-        >
-          Trail Finder
+        <Typography variant="h4" style={{ marginBottom: '20px', fontWeight: 'bold' }}>
+          Log In
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -66,46 +62,23 @@ const LoginPage = () => {
             variant="contained"
             fullWidth
             style={{
-              marginTop: "20px",
-              backgroundColor: "#004d40",
-              color: "#fff",
-              padding: "10px",
+              marginTop: '20px',
+              backgroundColor: '#004d40',
+              color: '#fff',
+              padding: '10px',
             }}
           >
             Log In
           </Button>
         </form>
-        {errorMessage && (
-          <Typography color="error" style={{ marginTop: "10px" }}>
-            {errorMessage}
+        {message && (
+          <Typography color="error" style={{ marginTop: '10px' }}>
+            {message}
           </Typography>
         )}
-        <Box marginTop="20px">
-          <Link
-            href="/register"
-            style={{
-              textDecoration: "none",
-              color: "#2196f3",
-              marginRight: "30px",
-              marginLeft: "-30px",
-            }}
-          >
-            Register for a new account
-          </Link>
-          <Link
-            href="/dashboard"
-            style={{
-              textDecoration: "none",
-              color: "#2196f3",
-              marginLeft: "10px",
-            }}
-          >
-            Continue as guest
-          </Link>
-        </Box>
       </Paper>
     </Box>
   );
 };
 
-export default LoginPage;
+export default LoginForm;
