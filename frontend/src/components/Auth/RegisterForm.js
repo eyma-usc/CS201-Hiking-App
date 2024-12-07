@@ -34,10 +34,12 @@ const RegisterForm = () => {
     if (!validateForm()) return;
 
     try {
+      // Make registration API call
       const response = await axios.post("/api/register", formData);
 
+      // Show success message
       setMessage("Registration successful! Redirecting to login...");
-      setTimeout(() => navigate("/"), 2000);
+      setTimeout(() => navigate("/"), 2000); // Redirect to login page after 2 seconds
     } catch (error) {
       setMessage("Registration failed. Please try again.");
     }
@@ -50,7 +52,7 @@ const RegisterForm = () => {
       alignItems="center"
       height="100vh"
       style={{
-        backgroundImage: "url('/shutterstock_2485740385.jpg')",
+        backgroundImage: "url('/shutterstock_2485740385.jpg')", // Background image path
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -62,7 +64,7 @@ const RegisterForm = () => {
           padding: "30px",
           width: "400px",
           textAlign: "center",
-          background: "linear-gradient(to bottom, #8d5524, #c68642)",
+          background: "linear-gradient(to bottom, #8d5524, #c68642)", // Wooden gradient
           borderRadius: "15px",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
           color: "#fff",

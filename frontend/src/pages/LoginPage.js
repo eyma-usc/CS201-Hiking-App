@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
-import { TextField, Button, Typography, Box, Paper } from '@mui/material';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { TextField, Button, Typography, Box, Paper, Link } from "@mui/material";
 
-const LoginForm = ({ onLogin }) => {
-  const [formData, setFormData] = useState({ username: '', password: '' });
-  const [message, setMessage] = useState('');
+const LoginPage = () => {
+  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      // Simulate successful login response
-      const role = 'user'; // Replace with actual role logic
-      onLogin(role); // Inform parent component of successful login
-    } catch (error) {
-      setMessage('Login failed. Please try again.');
+    // Simulate login
+    if (formData.username === "guest" && formData.password === "guest") {
+      navigate("/dashboard"); // Navigate to dashboard
+    } else {
+      setErrorMessage("Invalid credentials. Please try again.");
     }
   };
 
@@ -26,18 +27,35 @@ const LoginForm = ({ onLogin }) => {
       justifyContent="center"
       alignItems="center"
       height="100vh"
-      style={{ backgroundColor: '#f4f4f4' }}
+      style={{
+        backgroundImage: "url('/shutterstock_2485740385.jpg')", // Image path
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <Paper
         elevation={3}
         style={{
-          padding: '30px',
-          width: '400px',
-          textAlign: 'center',
+          padding: "30px",
+          width: "400px",
+          textAlign: "center",
+          background: "linear-gradient(to bottom, #8d5524, #c68642)", // Wooden gradient
+          borderRadius: "15px",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
+          color: "#fff",
         }}
       >
-        <Typography variant="h4" style={{ marginBottom: '20px', fontWeight: 'bold' }}>
-          Log In
+        <Typography
+          variant="h3"
+          style={{
+            marginBottom: "20px",
+            fontWeight: "bold",
+            color: "#fff",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
+          }}
+        >
+          Trail Finder
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -47,6 +65,14 @@ const LoginForm = ({ onLogin }) => {
             onChange={handleChange}
             fullWidth
             margin="normal"
+            InputLabelProps={{ style: { color: "#fff" } }}
+            InputProps={{
+              style: {
+                color: "#fff",
+                backgroundColor: "#6a4115",
+                borderRadius: "5px",
+              },
+            }}
           />
           <TextField
             label="Password"
@@ -56,29 +82,66 @@ const LoginForm = ({ onLogin }) => {
             onChange={handleChange}
             fullWidth
             margin="normal"
+            InputLabelProps={{ style: { color: "#fff" } }}
+            InputProps={{
+              style: {
+                color: "#fff",
+                backgroundColor: "#6a4115",
+                borderRadius: "5px",
+              },
+            }}
           />
           <Button
             type="submit"
             variant="contained"
             fullWidth
             style={{
-              marginTop: '20px',
-              backgroundColor: '#004d40',
-              color: '#fff',
-              padding: '10px',
+              marginTop: "20px",
+              backgroundColor: "#3e2723",
+              color: "#fff",
+              padding: "10px",
+              fontSize: "18px",
+              fontWeight: "bold",
+              borderRadius: "5px",
+              textTransform: "none",
             }}
           >
-            Log In
+            Start Hike
           </Button>
         </form>
-        {message && (
-          <Typography color="error" style={{ marginTop: '10px' }}>
-            {message}
+        {errorMessage && (
+          <Typography color="error" style={{ marginTop: "10px" }}>
+            {errorMessage}
           </Typography>
         )}
+        <Box marginTop="20px">
+          <Link
+            href="/register"
+            style={{
+              textDecoration: "none",
+              color: "#ffcc80",
+              fontWeight: "bold",
+              marginRight: "30px",
+              marginLeft: "-30px",
+            }}
+          >
+            Register for a new account
+          </Link>
+          <Link
+            href="/dashboard"
+            style={{
+              textDecoration: "none",
+              color: "#ffcc80",
+              fontWeight: "bold",
+              marginLeft: "10px",
+            }}
+          >
+            Continue as guest
+          </Link>
+        </Box>
       </Paper>
     </Box>
   );
 };
 
-export default LoginForm;
+export default LoginPage;
