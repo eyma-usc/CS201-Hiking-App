@@ -28,7 +28,7 @@ const LoginPage = () => {
       alignItems="center"
       height="100vh"
       style={{
-        backgroundImage: "url('/shutterstock_2485740385.jpg')", // Image path
+        backgroundImage: "url('./shutterstock_2485740385.jpg')", // Image path
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
