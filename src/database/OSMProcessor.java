@@ -19,9 +19,6 @@ public class OSMProcessor {
         GeometryFactory geometryFactory = new GeometryFactory();
 
         for (File geojsonFile : geojsonFiles) {
-            // Parse GeoJSON (pseudo-code, replace with a real library like Jackson or Gson)
-            // Load ways into wayData, using the ID as the key and LineString as the value.
-            // Example: wayData.put(wayId, lineString);
 
             for (Map.Entry<String, LineString> entryA : wayData.entrySet()) {
                 String wayIdA = entryA.getKey();
