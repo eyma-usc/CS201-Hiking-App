@@ -17,6 +17,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	resp.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    	resp.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");
+    	resp.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
         StringBuilder sb = new StringBuilder();
         try (BufferedReader reader = req.getReader()) {
             String line;
