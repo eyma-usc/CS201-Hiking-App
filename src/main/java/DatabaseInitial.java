@@ -12,7 +12,7 @@ public class DatabaseInitial {
     private static final String PASSWORD = "Ethanchiu0520";
 
     public static void main(String[] args) {
-        // Example usage of fetchFilteredTrails method
+
         List<Trail> trails = fetchFilteredTrails(
             Optional.of("Mountain Path"),
             Optional.empty(),
