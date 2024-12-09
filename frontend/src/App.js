@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import RegisterForm from "./components/Auth/RegisterForm";
-import Dashboard from "./pages/Dashboard";
+import TrailSearch from "./pages/TrailSearch"
+import TrailDetailPage from "./pages/TrailDetail"
+import ReviewForm from "./components/ReviewForm";
 
 const App = () => {
   return (
@@ -12,8 +14,9 @@ const App = () => {
         <Route path="/" element={<LoginPage />} />
         {/* Register Page */}
         <Route path="/register" element={<RegisterForm />} />
-        {/* Dashboard for logged-in users or guests */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/review" element={<ReviewForm />} />
+        <Route path="/trailsearch" element={<TrailSearch />} />
+        <Route path="/trails/:trailId" element={<TrailDetailPage />} />
       </Routes>
     </Router>
   );

@@ -15,7 +15,7 @@ const LoginPage = () => {
     e.preventDefault();
     // Simulate login
     if (formData.username === "guest" && formData.password === "guest") {
-      navigate("/dashboard"); // Navigate to dashboard
+      navigate("/trailsearch"); // Navigate to trailsearch
     } else {
       setErrorMessage("Invalid credentials. Please try again.");
     }
@@ -106,7 +106,7 @@ const LoginPage = () => {
               textTransform: "none",
             }}
           >
-            Start Hike
+            Start Hiking!
           </Button>
         </form>
         {errorMessage && (
@@ -128,7 +128,7 @@ const LoginPage = () => {
             Register for a new account
           </Link>
           <Link
-            href="/dashboard"
+            href="/trailsearch"
             style={{
               textDecoration: "none",
               color: "#ffcc80",

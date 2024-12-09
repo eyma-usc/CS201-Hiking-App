@@ -1,0 +1,76 @@
+.contentContainer{
+    color: #004d40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:75px;
+}
+
+h1{
+    color: #004d40; 
+    text-align: center;
+}
+
+
+.ratingContainer{
+    text-align: center;
+}
+
+.rating{
+    display: none;
+}
+
+.star{
+    cursor: pointer;
+}
+
+.recommendationContainer{
+    text-align:center;
+}
+.recommendation{
+    display:none;
+}
+
+.recOptionContainer{
+     margin:20px;
+     padding:20px;
+}
+
+.recommendationLabel{
+  margin: 15px;
+  text-align: center;
+  background-color: #004d40;
+  cursor: pointer;
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  color: white;
+
+}
+
+.recommendation:checked + .recommendationLabel {
+    background-color: #0fb99d;
+}
+
+.commentsContainer{
+    margin-bottom:20px;
+}
+
+.registerForm{
+    text-align:center;
+}
+
+.submitBtn{
+    text-align: center;
+    background-color: #004d40;
+    cursor: pointer;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    font-size:20px;
+}
