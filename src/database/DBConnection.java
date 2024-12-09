@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
     // Database connection URL, username, and password
-    private static final String URL = "jdbc:mysql://localhost/HikingApp?user=root&password=Ethanchiu0520"; // Replace "WeatherConditions" with your database name
+    private static final String URL = "jdbc:mysql://localhost/HikingApp?user=root&password=Ethanchiu0520"; 
     private static final String USERNAME = "root"; // Replace with your MySQL username
     private static final String PASSWORD = "Ethanchiu0520"; // Replace with your MySQL password
 
