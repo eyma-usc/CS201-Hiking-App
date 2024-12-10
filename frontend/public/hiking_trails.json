@@ -1,0 +1,380 @@
+[
+    {
+        "trailID": "trail_000",
+        "name": "Runyon Canyon Loop",
+        "location": "Hollywood, Los Angeles, CA",
+        "difficulty": "moderate",
+        "length": 2.7,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_001",
+        "name": "Griffith Observatory West Trail",
+        "location": "Griffith Park, Los Angeles, CA",
+        "difficulty": "easy",
+        "length": 2.0,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_002",
+        "name": "Eaton Canyon Falls Trail",
+        "location": "Pasadena, CA",
+        "difficulty": "moderate",
+        "length": 3.5,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_003",
+        "name": "Temescal Canyon Loop",
+        "location": "Pacific Palisades, CA",
+        "difficulty": "moderate",
+        "length": 3.1,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_004",
+        "name": "Solstice Canyon Trail",
+        "location": "Malibu, CA",
+        "difficulty": "moderate",
+        "length": 3.0,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_005",
+        "name": "Los Liones Trail to Parker Mesa Overlook",
+        "location": "Pacific Palisades, CA",
+        "difficulty": "moderate",
+        "length": 7.0,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_006",
+        "name": "Escondido Falls Trail",
+        "location": "Malibu, CA",
+        "difficulty": "moderate",
+        "length": 3.8,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_007",
+        "name": "Mount Baldy via Devil's Backbone Trail",
+        "location": "Angeles National Forest, CA",
+        "difficulty": "hard",
+        "length": 11.3,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_008",
+        "name": "Sturtevant Falls Trail",
+        "location": "Angeles National Forest, CA",
+        "difficulty": "moderate",
+        "length": 3.3,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_009",
+        "name": "Mishe Mokwa Trail to Sandstone Peak",
+        "location": "Santa Monica Mountains, CA",
+        "difficulty": "hard",
+        "length": 6.0,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_010",
+        "name": "Brush Canyon Trail",
+        "location": "Griffith Park, Los Angeles, CA",
+        "difficulty": "moderate",
+        "length": 2.0,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_011",
+        "name": "Franklin Canyon Park Trail",
+        "location": "Beverly Hills, CA",
+        "difficulty": "easy",
+        "length": 1.0,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_012",
+        "name": "Baldwin Hills Scenic Overlook",
+        "location": "Culver City, CA",
+        "difficulty": "moderate",
+        "length": 1.3,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_013",
+        "name": "Mount Hollywood Trail",
+        "location": "Griffith Park, Los Angeles, CA",
+        "difficulty": "moderate",
+        "length": 5.0,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_014",
+        "name": "Echo Mountain via Sam Merrill Trail",
+        "location": "Altadena, CA",
+        "difficulty": "moderate",
+        "length": 5.4,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_015",
+        "name": "Murphy Ranch Trail",
+        "location": "Pacific Palisades, CA",
+        "difficulty": "moderate",
+        "length": 3.4,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_016",
+        "name": "Parker Mesa Overlook via East Topanga Fire Road",
+        "location": "Topanga State Park, CA",
+        "difficulty": "moderate",
+        "length": 6.9,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_017",
+        "name": "Switzer Falls via Gabrielino Trail",
+        "location": "Angeles National Forest, CA",
+        "difficulty": "moderate",
+        "length": 4.5,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_018",
+        "name": "Westridge-Canyonback Trail",
+        "location": "Brentwood, Los Angeles, CA",
+        "difficulty": "moderate",
+        "length": 7.4,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_019",
+        "name": "Mishe Mokwa Trail",
+        "location": "Santa Monica Mountains, CA",
+        "difficulty": "moderate",
+        "length": 6.0,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_020",
+        "name": "Mount Wilson via Chantry Flat",
+        "location": "Angeles National Forest, CA",
+        "difficulty": "hard",
+        "length": 14.5,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_021",
+        "name": "Lassen Peak Trail",
+        "location": "Lassen Volcanic National Park, CA",
+        "difficulty": "hard",
+        "length": 5.0,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_022",
+        "name": "McWay Falls Trail",
+        "location": "Big Sur, CA",
+        "difficulty": "easy",
+        "length": 0.6,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_023",
+        "name": "Point Lobos Loop Trail",
+        "location": "Carmel-by-the-Sea, CA",
+        "difficulty": "moderate",
+        "length": 6.7,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_024",
+        "name": "Fern Canyon Trail",
+        "location": "Prairie Creek Redwoods State Park, CA",
+        "difficulty": "easy",
+        "length": 1.1,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_025",
+        "name": "Half Dome Trail",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 14.8,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_026",
+        "name": "Vernal and Nevada Falls Trail",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 8.8,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_027",
+        "name": "Rubicon Trail",
+        "location": "South Lake Tahoe, CA",
+        "difficulty": "moderate",
+        "length": 10.1,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_028",
+        "name": "Torrey Pines State Reserve Loop",
+        "location": "San Diego, CA",
+        "difficulty": "moderate",
+        "length": 2.3,
+        "type": "loop",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_029",
+        "name": "Black Star Canyon Trail",
+        "location": "Orange County, CA",
+        "difficulty": "hard",
+        "length": 6.8,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_030",
+        "name": "Bridge to Nowhere",
+        "location": "San Gabriel Mountains, CA",
+        "difficulty": "hard",
+        "length": 10.0,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_031",
+        "name": "The Slot",
+        "location": "Anza-Borrego Desert State Park, CA",
+        "difficulty": "moderate",
+        "length": 2.3,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_032",
+        "name": "Cataract Falls Trail",
+        "location": "Mount Tamalpais, CA",
+        "difficulty": "moderate",
+        "length": 2.7,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_033",
+        "name": "Skyline to the Sea Trail",
+        "location": "Santa Cruz Mountains, CA",
+        "difficulty": "hard",
+        "length": 29.5,
+        "type": "point-to-point",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_034",
+        "name": "El Capitan Trail",
+        "location": "Yosemite National Park, CA",
+        "difficulty": "hard",
+        "length": 19.3,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_035",
+        "name": "Castle Rock Trail",
+        "location": "Big Bear Lake, CA",
+        "difficulty": "moderate",
+        "length": 2.4,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_036",
+        "name": "Potato Chip Rock via Mount Woodson Trail",
+        "location": "San Diego, CA",
+        "difficulty": "hard",
+        "length": 7.3,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_037",
+        "name": "Horsetail Falls Trail",
+        "location": "El Dorado National Forest, CA",
+        "difficulty": "hard",
+        "length": 3.2,
+        "type": "out-and-back",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_038",
+        "name": "Tomales Point Trail",
+        "location": "Point Reyes National Seashore, CA",
+        "difficulty": "moderate",
+        "length": 9.4,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_039",
+        "name": "Coyote Hills Bayview Trail",
+        "location": "Fremont, CA",
+        "difficulty": "easy",
+        "length": 3.0,
+        "type": "loop",
+        "dog_friendly": true
+    },
+    {
+        "trailID": "trail_040",
+        "name": "Drake's Beach Trail",
+        "location": "Point Reyes National Seashore, CA",
+        "difficulty": "easy",
+        "length": 1.2,
+        "type": "out-and-back",
+        "dog_friendly": false
+    },
+    {
+        "trailID": "trail_041",
+        "name": "Alamere Falls Trail",
+        "location": "Point Reyes National Seashore, CA",
+        "difficulty": "hard",
+        "length": 13.6,
+        "type": "out-and-back",
+        "dog_friendly": false
+    }
+]
