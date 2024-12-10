@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Typography, Box, Paper, Link } from "@mui/material";
+import axios from "axios";
 
 const LoginPage = () => {
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrorMessage(""); // Clear error message when input changes
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate login
-    if (formData.username === "guest" && formData.password === "guest") {
-      navigate("/trailsearch"); // Navigate to trailsearch
-    } else {
-      setErrorMessage("Invalid credentials. Please try again.");
+    try {
+      const response = await axios.post("http://localhost:8080/login", formData);
+      if (response.status === 200) {
+        navigate("/trailsearch"); // Redirect to trailsearch on success
+      }
+    } catch (error) {
+      if (error.response?.status === 404) {
+        setErrorMessage("User not found. Please register.");
+      } else if (error.response?.status === 401) {
+        setErrorMessage("Invalid credentials. Please try again.");
+      } else {
+        setErrorMessage("An error occurred. Please try again later.");
+      }
     }
   };
 
@@ -28,7 +38,7 @@ const LoginPage = () => {
       alignItems="center"
       height="100vh"
       style={{
-        backgroundImage: "url('./shutterstock_2485740385.jpg')", // Image path
+        backgroundImage: "url('./shutterstock_2485740385.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -40,7 +50,7 @@ const LoginPage = () => {
           padding: "30px",
           width: "400px",
           textAlign: "center",
-          background: "linear-gradient(to bottom, #8d5524, #c68642)", // Wooden gradient
+          background: "linear-gradient(to bottom, #8d5524, #c68642)",
           borderRadius: "15px",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.3)",
           color: "#fff",
@@ -59,9 +69,10 @@ const LoginPage = () => {
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Username"
-            name="username"
-            value={formData.username}
+            label="Email"
+            name="email"
+            type="email"
+            value={formData.email}
             onChange={handleChange}
             fullWidth
             margin="normal"
