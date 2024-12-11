@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 const TrailSearch = () => {
-  // filters
+  // Filters
   const [query, setQuery] = useState("");
   const [dogFriendly, setDogFriendly] = useState(false);
   const [type, setType] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [length, setLength] = useState("");
   const [sort, setSort] = useState("");
-  const [results, setResults] = useState([]);
+
+  // Data states
+  const [allTrails, setAllTrails] = useState([]); // Store all trails
+  const [results, setResults] = useState([]); // Store filtered results
   const [error, setError] = useState("");
 
-  // fetch data from trails.json
+  // Fetch data from JSON file
   useEffect(() => {
     const fetchTrails = async () => {
       try {
-        const response = await fetch("/hiking_trails.json"); 
+        const response = await fetch("/hiking_trails.json");
         const data = await response.json();
-        setResults(data); //initial results
+        setAllTrails(data); // Save original dataset
+        setResults(data); // Initialize results to all trails
       } catch (err) {
         console.error("Failed to fetch trail data:", err);
         setError("Failed to load trail data.");
@@ -28,11 +31,11 @@ const TrailSearch = () => {
     fetchTrails();
   }, []);
 
-  // handle search
+  // Handle search
   const handleSearch = () => {
-    let filteredResults = [...results];
+    let filteredResults = [...allTrails]; // Always start with the full dataset
 
-    // filters
+    // Apply filters
     if (query) {
       filteredResults = filteredResults.filter(
         (trail) =>
@@ -65,7 +68,7 @@ const TrailSearch = () => {
       filteredResults = filteredResults.filter(lengthRanges[length]);
     }
 
-    // sorting
+    // Sorting
     if (sort === "name") {
       filteredResults.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sort === "difficulty") {
@@ -90,7 +93,7 @@ const TrailSearch = () => {
       }}
     >
       <div style={{ maxWidth: "1000px", margin: "0 auto", color: "white" }}>
-	  <h1 style={{ textAlign: "center", color: "white" }}>Find Trails</h1>
+        <h1 style={{ textAlign: "center", color: "white" }}>Find Trails</h1>
         <div style={{ marginBottom: "20px" }}>
           <input
             type="text"
@@ -103,7 +106,7 @@ const TrailSearch = () => {
               marginBottom: "20px",
               border: "1px solid #ccc",
               borderRadius: "8px",
-			  color: "white",
+              color: "white",
             }}
           />
         </div>
@@ -140,7 +143,7 @@ const TrailSearch = () => {
           >
             <option value="">All Difficulties</option>
             <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
+            <option value="moderate">Moderate</option>
             <option value="hard">Hard</option>
           </select>
           <select
@@ -166,7 +169,10 @@ const TrailSearch = () => {
           </select>
           <button
             onClick={handleSearch}
-            style={{ padding: "10px 20px", marginLeft: "200px", cursor: "pointer" }}
+            style={{
+              padding: "10px 20px",
+              cursor: "pointer",
+            }}
           >
             Apply Filters/Search
           </button>
@@ -199,7 +205,7 @@ const TrailSearch = () => {
                 <p>Location: {trail.location}</p>
                 <p>Difficulty: {trail.difficulty}</p>
                 <p>Length: {trail.length} miles</p>
-				<p>Type: {trail.type} </p>
+                <p>Type: {trail.type}</p>
                 <p>Dog-Friendly 🐾 : {trail.dog_friendly ? "Yes" : "No"}</p>
                 <button
                   style={{
@@ -211,13 +217,13 @@ const TrailSearch = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <Link to={`/trails/${trail.name}`}
-                    state = {{ trail }} 
-                    style={{ color: "white", textDecoration: "none" }}>
+                  <Link
+                    to={`/trails/${trail.name}`}
+                    state={{ trail }}
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
                     Learn More
                   </Link>
-
-                  
                 </button>
               </div>
             ))
