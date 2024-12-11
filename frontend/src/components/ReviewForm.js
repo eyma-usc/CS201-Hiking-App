@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { IoMdStar } from "react-icons/io";
 import './ReviewForm.css';
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Typography } from "@mui/material";
+
 
 const ReviewForm = () => {
+    //const { trailId } = useParams();
+    //const { userId } = useParams();s
     const [formData, setFormData] = useState({ rating: '', recommendation: '', comments: '' });
 
-    const [submittedReview, setSubmittedReview] = useState(null); //**** 
-
-    
+    const navigate = useNavigate();
 
     const [rating, setRating] = useState(0);
-    const [recommendation, setRecommendation] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleRatingChange = (event) => {
         setRating(parseInt(event.target.value));
@@ -18,7 +22,6 @@ const ReviewForm = () => {
     };
 
     const handleRecommendationChange = (event) => {
-        setRecommendation(event.target.value);
         setFormData({ ...formData, [event.target.name]: event.target.value });
     };
 
@@ -27,58 +30,29 @@ const ReviewForm = () => {
     };
 
     //Get rid of **
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        // Simulate submission by setting the submitted review
-        const reviewData = {
-            rating: formData.rating,
-            recommendation: formData.recommendation,
-            comments: formData.comments,
-        };
+        try {
+            // Make registration API call
+            /*const data = {
+                ...formData,
+                trailId: {trailId},
+                userId: {userId}
+            };*/
+            await axios.post("http://localhost:8080/submitreview", formData);
+      
+            // Show success message
+            setMessage("Submitted review successfully! Redirecting to trail details...");
+            setTimeout(() => navigate(-1), 2000); // Redirect to trail details page after 2 seconds
+          } catch (error) {
+            setMessage("Review submission failed. Please try again.");
+          }
 
-        setSubmittedReview(reviewData);
-
-        // Reset form data
         setFormData({rating: '', recommendation: '', comments: '' });
         setRating(0);
     };
 
-    //NEED to UPDATE
-    /*const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        const reviewInput = {
-            user: formData.user || "Anonymous", //deal with  **
-            trailId: "1", // **Need to replace 
-            rating: formData.rating,
-            recommendation: formData.recommendation,
-            comments: formData.comments,
-        };
-
-        try {
-            
-            //adjust to work
-            const response = await fetch('http://localhost:5000/api/reviews', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(reviewData),
-            });
-
-            if (response.ok) {
-                alert('Review submitted successfully!');
-                setSubmittedReview(reviewData);
-                setFormData({ user: '', rating: '', recommendation: '', comments: '' });
-                setRating(0);
-            } else {
-                alert('Failed to submit review. Please try again.');
-            }
-        } catch (error) {
-            setMessage("An error occured submitting the review. Please try again.")
-        }
-    };*/
 
     function getCorrectColor(value){
         if (value <= rating){
@@ -91,7 +65,7 @@ const ReviewForm = () => {
 
     return (
         <div class = "contentContainer">
-            <form class = "registerForm" onsubmit = {handleSubmit}>
+            <form class = "registerForm" onSubmit = {handleSubmit}>
                 <h1>Leave a Review For the Trail!</h1>
                 <div class = "ratingContainer">
                     <h3>How would you rate this trail?</h3>
@@ -130,21 +104,22 @@ const ReviewForm = () => {
 
                 <div class = "commentsContainer">
                     <h3>Any Comments? </h3>
-                    <textarea id="questions" name="questions" rows="10" cols="70" placeholder="Let us know more about what you think here!"></textarea>
+                    <textarea id="questions" name="comments" rows="10" cols="70" placeholder="Let us know more about what you think here!" onChange = {handleCommentChange} ></textarea>
                 </div>
 
                 <input type="submit" class = "submitBtn" value = "Submit"></input>
             </form>
             
-            {submittedReview && (
-            <div className = "reviewDisplay">
-                <p>
-                    <strong> Rating: {submittedReview.rating} </strong>
-                    <strong> Recommendation: {submittedReview.recommendation} </strong> <br/>
-                    <strong> Comments: {submittedReview.comments} </strong>
-                </p>
-            </div>
+
+            {message && (
+                <Typography
+                    color={message.includes("successful") ? "primary" : "error"}
+                    style={{ marginTop: "10px" }}
+                >
+                    {message}
+                </Typography>
             )}
+            
             
         </div>
 

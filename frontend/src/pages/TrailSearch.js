@@ -166,9 +166,9 @@ const TrailSearch = () => {
           </select>
           <button
             onClick={handleSearch}
-            style={{ padding: "10px 20px", cursor: "pointer" }}
+            style={{ padding: "10px 20px", marginLeft: "200px", cursor: "pointer" }}
           >
-            Search
+            Apply Filters/Search
           </button>
         </div>
         {/* Error Message */}
@@ -211,12 +211,13 @@ const TrailSearch = () => {
                     cursor: "pointer",
                   }}
                 >
-                  <Link
-                    to={`/trails/${trail.trailID}`}
-                    style={{ color: "white", textDecoration: "none" }}
-                  >
+                  <Link to={`/trails/${trail.name}`}
+                    state = {{ trail }} 
+                    style={{ color: "white", textDecoration: "none" }}>
                     Learn More
                   </Link>
+
+                  
                 </button>
               </div>
             ))

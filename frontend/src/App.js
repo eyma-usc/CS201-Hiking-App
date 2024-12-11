@@ -5,6 +5,7 @@ import RegisterForm from "./components/Auth/RegisterForm";
 import TrailSearch from "./pages/TrailSearch"
 import TrailDetailPage from "./pages/TrailDetail"
 import ReviewForm from "./components/ReviewForm";
+import ReviewDisplay from "./components/ReviewDisplay";
 
 const App = () => {
   return (
@@ -16,7 +17,9 @@ const App = () => {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/review" element={<ReviewForm />} />
         <Route path="/trailsearch" element={<TrailSearch />} />
-        <Route path="/trails/:trailId" element={<TrailDetailPage />} />
+        <Route path="/trails/:trailName" element={<TrailDetailPage />} />
+        <Route path="/trails/:trailName/review" element={<ReviewForm />} />
+        <Route path="/reviewdisplay" element={<ReviewDisplay />} />
       </Routes>
     </Router>
   );

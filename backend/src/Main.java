@@ -8,6 +8,7 @@ public class Main {
         // Register handlers
         server.createContext("/register", new RegistrationHandler());
         server.createContext("/login", new LoginHandler());
+        server.createContext("/submitreview", new ReviewHandler());
 
         server.setExecutor(null); // Use default executor
         server.start();
