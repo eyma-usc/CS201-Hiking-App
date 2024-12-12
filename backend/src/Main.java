@@ -1,5 +1,6 @@
 import com.sun.net.httpserver.HttpServer;
 import java.net.InetSocketAddress;
+import java.util.concurrent.Executors;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -10,8 +11,11 @@ public class Main {
         server.createContext("/login", new LoginHandler());
         server.createContext("/submitreview", new ReviewHandler());
 
-        server.setExecutor(null); // Use default executor
+        int numberOfThreads = 10; 
+        server.setExecutor(Executors.newFixedThreadPool(numberOfThreads));
+
+        // Start the server
         server.start();
-        System.out.println("Server started on port 8080");
+        System.out.println("Server started on port 8080 with " + numberOfThreads + " threads.");
     }
 }

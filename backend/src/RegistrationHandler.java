@@ -9,20 +9,23 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class RegistrationHandler implements HttpHandler {
+    private static final Logger logger = Logger.getLogger(RegistrationHandler.class.getName());
+
     @Override
     public void handle(HttpExchange exchange) {
         try {
             // Add CORS headers to every response
             Headers headers = exchange.getResponseHeaders();
-            headers.add("Access-Control-Allow-Origin", "*"); // Allow all origins
+            headers.add("Access-Control-Allow-Origin", "*");
             headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
             headers.add("Access-Control-Allow-Headers", "Content-Type");
 
-            // Handle preflight (OPTIONS) requests
             if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
-                exchange.sendResponseHeaders(204, -1); // No content for OPTIONS requests
+                exchange.sendResponseHeaders(204, -1); // Preflight request handling
                 return;
             }
 
@@ -32,8 +35,8 @@ public class RegistrationHandler implements HttpHandler {
                 sendResponse(exchange, 405, "Method not allowed");
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Log unexpected errors
-            sendResponse(exchange, 500, "Internal server error: " + e.getMessage());
+            logger.log(Level.SEVERE, "Unexpected error", e);
+            sendResponse(exchange, 500, "Internal server error");
         }
     }
 
@@ -41,29 +44,22 @@ public class RegistrationHandler implements HttpHandler {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8))) {
 
-            // Read and parse the JSON request body
             StringBuilder requestBody = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 requestBody.append(line);
             }
 
-            // Log the received request body for debugging
-            System.out.println("Received request body: " + requestBody);
+            logger.info("Received request body: " + requestBody);
 
-            JsonObject json;
-            try {
-                json = JsonParser.parseString(requestBody.toString()).getAsJsonObject();
-            } catch (Exception e) {
-                sendResponse(exchange, 400, "Invalid JSON format: " + e.getMessage());
-                return;
-            }
+            JsonObject json = parseJson(requestBody.toString(), exchange);
+            if (json == null) return;
 
             // Validate and extract user details
-            String firstName = json.has("firstName") ? json.get("firstName").getAsString() : null;
-            String lastName = json.has("lastName") ? json.get("lastName").getAsString() : null;
-            String email = json.has("email") ? json.get("email").getAsString() : null;
-            String password = json.has("password") ? json.get("password").getAsString() : null;
+            String firstName = extractJsonField(json, "firstName", exchange);
+            String lastName = extractJsonField(json, "lastName", exchange);
+            String email = extractJsonField(json, "email", exchange);
+            String password = extractJsonField(json, "password", exchange);
 
             if (firstName == null || lastName == null || email == null || password == null) {
                 sendResponse(exchange, 400, "Missing required fields: firstName, lastName, email, or password.");
@@ -77,17 +73,39 @@ public class RegistrationHandler implements HttpHandler {
                 userDAO.registerUser(user);
                 sendResponse(exchange, 200, "Registration successful!");
             } catch (SQLException e) {
-                if (e.getMessage().contains("Duplicate entry")) {
-                    sendResponse(exchange, 400, "Email already registered.");
-                } else {
-                    e.printStackTrace(); // Log database errors
-                    sendResponse(exchange, 500, "Database error: " + e.getMessage());
-                }
+                handleDatabaseError(exchange, e);
             }
 
         } catch (Exception e) {
-            e.printStackTrace(); // Log unexpected errors
-            sendResponse(exchange, 400, "Invalid request: " + e.getMessage());
+            logger.log(Level.WARNING, "Invalid request", e);
+            sendResponse(exchange, 400, "Invalid request");
+        }
+    }
+
+    private JsonObject parseJson(String body, HttpExchange exchange) {
+        try {
+            return JsonParser.parseString(body).getAsJsonObject();
+        } catch (Exception e) {
+            sendResponse(exchange, 400, "Invalid JSON format");
+            logger.log(Level.WARNING, "Invalid JSON: " + body, e);
+            return null;
+        }
+    }
+
+    private String extractJsonField(JsonObject json, String field, HttpExchange exchange) {
+        if (json.has(field) && !json.get(field).getAsString().isEmpty()) {
+            return json.get(field).getAsString();
+        }
+        sendResponse(exchange, 400, "Missing or empty field: " + field);
+        return null;
+    }
+
+    private void handleDatabaseError(HttpExchange exchange, SQLException e) {
+        if (e.getMessage().contains("Duplicate entry")) {
+            sendResponse(exchange, 400, "Email already registered.");
+        } else {
+            logger.log(Level.SEVERE, "Database error", e);
+            sendResponse(exchange, 500, "Database error: " + e.getMessage());
         }
     }
 
@@ -95,10 +113,10 @@ public class RegistrationHandler implements HttpHandler {
         try {
             exchange.sendResponseHeaders(statusCode, message.getBytes().length);
             try (OutputStream os = exchange.getResponseBody()) {
-                os.write(message.getBytes());
+                os.write(message.getBytes(StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Log errors while sending responses
+            logger.log(Level.SEVERE, "Error sending response", e);
         }
     }
 }

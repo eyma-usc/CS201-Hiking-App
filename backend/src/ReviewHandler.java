@@ -11,6 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 
 public class ReviewHandler implements HttpHandler {
+
     @Override
     public void handle(HttpExchange exchange) {
         try {
@@ -18,7 +19,7 @@ public class ReviewHandler implements HttpHandler {
             Headers headers = exchange.getResponseHeaders();
             headers.add("Access-Control-Allow-Origin", "*"); // Allow all origins
             headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-            headers.add("Access-Control-Allow-Headers", "Content-Type");
+            headers.add("Access-Control-Allow-Headers", "Content-Type, Cookie");
 
             // Handle preflight (OPTIONS) requests
             if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
@@ -40,6 +41,16 @@ public class ReviewHandler implements HttpHandler {
     private void handlePostRequest(HttpExchange exchange) {
         try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(exchange.getRequestBody(), StandardCharsets.UTF_8))) {
+
+            // Validate user authentication using the session token
+            Headers requestHeaders = exchange.getRequestHeaders();
+            String cookies = requestHeaders.getFirst("Cookie");
+            String sessionToken = TokenManager.getTokenFromCookies(cookies);
+
+            if (sessionToken == null || !TokenManager.isValidToken(sessionToken)) {
+                sendResponse(exchange, 401, "Unauthorized. Please log in.");
+                return;
+            }
 
             // Read and parse the JSON request body
             StringBuilder requestBody = new StringBuilder();
@@ -78,6 +89,7 @@ public class ReviewHandler implements HttpHandler {
                 return;
             }
 
+            // Create a new Review instance
             Review review = new Review(rating, recommendation, comments);
             ReviewDAO reviewDAO = new ReviewDAO();
 
@@ -85,12 +97,12 @@ public class ReviewHandler implements HttpHandler {
                 reviewDAO.submitReview(review);
                 sendResponse(exchange, 200, "Review submission successful!");
             } catch (SQLException e) {
-                e.printStackTrace(); // Log database errors
+                e.printStackTrace();
                 sendResponse(exchange, 500, "Database error: " + e.getMessage());
             }
 
         } catch (Exception e) {
-            e.printStackTrace(); // Log unexpected errors
+            e.printStackTrace();
             sendResponse(exchange, 400, "Invalid request: " + e.getMessage());
         }
     }
@@ -102,7 +114,7 @@ public class ReviewHandler implements HttpHandler {
                 os.write(message.getBytes());
             }
         } catch (Exception e) {
-            e.printStackTrace(); // Log errors while sending responses
+            e.printStackTrace();
         }
     }
 }

@@ -1,12 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom"; 
-import { useLocation } from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const TrailDetailPage = () => {
-  const location = useLocation(); 
+  const location = useLocation();
+  const navigate = useNavigate();
   const { trail } = location.state;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      try {
+        const storedLoginStatus = localStorage.getItem('isLoggedIn');
+        setIsLoggedIn(storedLoginStatus === 'true'); 
+      } catch (error) {
+        console.error('Error reading login status from local storage:', error);
+        setIsLoggedIn(false); 
+      }
+    };
+    checkLoginStatus();
+  }, []);
+
+  const handleLoginRedirect = () => {
+    navigate("/");
+  };
+  const handleAddReviewClick = () => {
+    if (isLoggedIn) {
+      navigate(`/trails/${trail.name}/review`);
+    } else {
+      handleLoginRedirect();
+    }
+  };
   return (
     <div className="container" style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
       <h1>{trail.name}</h1>
@@ -14,22 +38,32 @@ const TrailDetailPage = () => {
       <p><strong>Length:</strong> {trail.length} miles</p>
       <p><strong>Difficulty:</strong> {trail.difficulty}</p>
       <p><strong>Rating:</strong> {trail.rating} ⭐</p>
-      <button
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#007BFF",
-          color: "#fff",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-          marginTop: "20px",
-        }}
-      >
-        <Link to={`/trails/${trail.name}/review`}
-          style={{ color: "white", textDecoration: "none" }}>
-          Add a Review
-        </Link>
-      </button>
+
+      {isLoggedIn ? (
+        <button
+          style={{
+            padding: "10px 20px",
+            backgroundColor: "#007BFF",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            marginTop: "20px",
+          }}
+          onClick={handleAddReviewClick}
+        >
+          <Link
+            to={`/trails/${trail.name}/review`}
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Add a Review
+          </Link>
+        </button>
+      ) : (
+        <div style={{ marginTop: "20px", color: "red", fontWeight: "bold" }}>
+          Please <span onClick={handleLoginRedirect} style={{ textDecoration: "underline", cursor: "pointer" }}>log in</span> or <Link to="/register">register</Link> to add a review.
+        </div>
+      )}
 
       <div
         className="review-section"
@@ -46,11 +80,7 @@ const TrailDetailPage = () => {
           No reviews yet. Be the first to add a review!
         </p>
       </div>
-      
     </div>
-
-    
-    
   );
 };
 

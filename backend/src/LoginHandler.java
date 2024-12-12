@@ -54,13 +54,11 @@ public class LoginHandler implements HttpHandler {
         UserDAO userDAO = new UserDAO();
         User user = userDAO.getUserByEmail(email);
 
-        if (user != null) {
-            if (user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(password)) {
+                // Set isLoggedIn flag in local storage (client-side responsibility)
+                exchange.getResponseHeaders().add("Set-Cookie", "isLoggedIn=true; Path=/; HttpOnly; SameSite=Strict"); 
                 sendResponse(exchange, 200, "Login successful!");
             } else {
-                sendResponse(exchange, 401, "Invalid password.");
-            }
-        } else {
             sendResponse(exchange, 404, "User not found. Please register.");
         }
     } catch (Exception e) {
@@ -68,6 +66,8 @@ public class LoginHandler implements HttpHandler {
         sendResponse(exchange, 400, "Invalid request: " + e.getMessage());
     }
 }
+
+
 
 
     private void sendResponse(HttpExchange exchange, int statusCode, String message) {

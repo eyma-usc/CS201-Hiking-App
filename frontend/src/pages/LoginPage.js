@@ -18,6 +18,8 @@ const LoginPage = () => {
     try {
       const response = await axios.post("http://localhost:8080/login", formData);
       if (response.status === 200) {
+        localStorage.setItem('isLoggedIn', 'true');
+        console.log("User successfully logged in. isLoggedIn:", localStorage.getItem('isLoggedIn')); 
         navigate("/trailsearch"); // Redirect to trailsearch on success
       }
     } catch (error) {
@@ -30,6 +32,13 @@ const LoginPage = () => {
       }
     }
   };
+
+  const handleGuest = () => {
+    localStorage.setItem('isLoggedIn', 'false');
+        console.log("User as guest. isLoggedIn:", localStorage.getItem('isLoggedIn')); 
+    navigate("/trailsearch"); 
+  };
+  
 
   return (
     <Box
@@ -139,7 +148,8 @@ const LoginPage = () => {
             Register for a new account
           </Link>
           <Link
-            href="/trailsearch"
+            
+            onClick={handleGuest}
             style={{
               textDecoration: "none",
               color: "#ffcc80",
