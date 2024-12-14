@@ -106,7 +106,6 @@ const TrailSearch = () => {
               marginBottom: "20px",
               border: "1px solid #ccc",
               borderRadius: "8px",
-              color: "white",
             }}
           />
         </div>
