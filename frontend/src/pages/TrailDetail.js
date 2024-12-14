@@ -32,7 +32,7 @@ const TrailDetailPage = () => {
     }
   };
   return (
-    <div className="container" style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
+    <div className="container" style={{ padding: '20px', maxWidth: '600px', margin: '0 auto', textAlign: "center" }}>
       <h1>{trail.name}</h1>
       <p><strong>Location:</strong> {trail.location}</p>
       <p><strong>Length:</strong> {trail.length} miles</p>
