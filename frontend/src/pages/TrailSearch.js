@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 const TrailSearch = () => {
-  // Filters
+  // filters
   const [query, setQuery] = useState("");
   const [dogFriendly, setDogFriendly] = useState(false);
   const [type, setType] = useState("");
@@ -9,19 +10,19 @@ const TrailSearch = () => {
   const [length, setLength] = useState("");
   const [sort, setSort] = useState("");
 
-  // Data states
-  const [allTrails, setAllTrails] = useState([]); // Store all trails
-  const [results, setResults] = useState([]); // Store filtered results
+  // states
+  const [allTrails, setAllTrails] = useState([]);
+  const [results, setResults] = useState([]);
   const [error, setError] = useState("");
 
-  // Fetch data from JSON file
+  // json file
   useEffect(() => {
     const fetchTrails = async () => {
       try {
         const response = await fetch("/hiking_trails.json");
         const data = await response.json();
-        setAllTrails(data); // Save original dataset
-        setResults(data); // Initialize results to all trails
+        setAllTrails(data);
+        setResults(data);
       } catch (err) {
         console.error("Failed to fetch trail data:", err);
         setError("Failed to load trail data.");
@@ -31,11 +32,11 @@ const TrailSearch = () => {
     fetchTrails();
   }, []);
 
-  // Handle search
+  // handle search
   const handleSearch = () => {
-    let filteredResults = [...allTrails]; // Always start with the full dataset
+    let filteredResults = [...allTrails];
 
-    // Apply filters
+    // apply filters
     if (query) {
       filteredResults = filteredResults.filter(
         (trail) =>
@@ -68,11 +69,15 @@ const TrailSearch = () => {
       filteredResults = filteredResults.filter(lengthRanges[length]);
     }
 
-    // Sorting
+    // sorting
     if (sort === "name") {
       filteredResults.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sort === "difficulty") {
-      filteredResults.sort((a, b) => a.difficulty.localeCompare(b.difficulty));
+      const difficultyOrder = { easy: 1, moderate: 2, hard: 3 };
+      filteredResults.sort(
+        (a, b) =>
+          difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]
+      );
     } else if (sort === "length") {
       filteredResults.sort((a, b) => a.length - b.length);
     }
@@ -106,6 +111,8 @@ const TrailSearch = () => {
               marginBottom: "20px",
               border: "1px solid #ccc",
               borderRadius: "8px",
+              color: "black", // Changed to black for better visibility
+              backgroundColor: "white", // Optional: Add background for better contrast
             }}
           />
         </div>
