@@ -70,16 +70,15 @@ const TrailSearch = () => {
     }
 
     // sorting
-    if (sort === "name") {
+    if (sort === "name_az") {
       filteredResults.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sort === "difficulty") {
-      const difficultyOrder = { easy: 1, moderate: 2, hard: 3 };
-      filteredResults.sort(
-        (a, b) =>
-          difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty]
-      );
-    } else if (sort === "length") {
+    }  else if (sort === "name_za") {
+      filteredResults.sort((a, b) => b.name.localeCompare(a.name));
+    } 
+    else if (sort === "length_asc") {
       filteredResults.sort((a, b) => a.length - b.length);
+    } else if (sort === "length_desc") {
+      filteredResults.sort((a, b) => b.length - a.length);
     }
 
     setResults(filteredResults);
@@ -139,8 +138,8 @@ const TrailSearch = () => {
             style={{ padding: "8px" }}
           >
             <option value="">All Types</option>
-            <option value="out-and-back">Out and Back</option>
-            <option value="loop">Loop</option>
+            <option value="Out-And-Back">Out and Back</option>
+            <option value="Loop">Loop</option>
           </select>
           <select
             value={difficulty}
@@ -148,9 +147,9 @@ const TrailSearch = () => {
             style={{ padding: "8px" }}
           >
             <option value="">All Difficulties</option>
-            <option value="easy">Easy</option>
-            <option value="moderate">Moderate</option>
-            <option value="hard">Hard</option>
+            <option value="Easy">Easy</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Hard">Hard</option>
           </select>
           <select
             value={length}
@@ -169,9 +168,10 @@ const TrailSearch = () => {
             style={{ padding: "8px" }}
           >
             <option value="">Sort By</option>
-            <option value="name">Name</option>
-            <option value="difficulty">Difficulty</option>
-            <option value="length">Length</option>
+            <option value="name_az">Name (A-Z)</option>
+            <option value="name_za">Name (Z-A)</option>
+            <option value="length_asc">Length (ASC)</option>
+            <option value="length_desc">Length (DESC)</option>
           </select>
           <button
             onClick={handleSearch}
