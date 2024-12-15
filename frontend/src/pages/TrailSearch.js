@@ -234,7 +234,7 @@ const TrailSearch = () => {
               </div>
             ))
           ) : (
-            <p>No results found.</p>
+            <p>Please try again with different search terms or filters.</p>
           )}
         </div>
       </div>

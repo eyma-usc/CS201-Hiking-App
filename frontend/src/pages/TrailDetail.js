@@ -36,8 +36,10 @@ const TrailDetailPage = () => {
       <h1>{trail.name}</h1>
       <p><strong>Location:</strong> {trail.location}</p>
       <p><strong>Length:</strong> {trail.length} miles</p>
+      <p><strong>Type:</strong> {trail.type}</p>
+      <p><strong>Dog-Friendly 🐾 : </strong>{trail.dog_friendly ? "Yes" : "No"}</p>
       <p><strong>Difficulty:</strong> {trail.difficulty}</p>
-      <p><strong>Rating:</strong> {trail.rating} ⭐</p>
+      <p><strong>Average Rating:</strong> {trail.rating} ⭐</p>
 
       {isLoggedIn ? (
         <button
@@ -54,6 +56,7 @@ const TrailDetailPage = () => {
         >
           <Link
             to={`/trails/${trail.name}/review`}
+            state={{ trail }}
             style={{ color: "white", textDecoration: "none" }}
           >
             Add a Review
@@ -73,6 +76,7 @@ const TrailDetailPage = () => {
           border: "1px solid #ddd",
           borderRadius: "8px",
           backgroundColor: "#f9f9f9",
+          height: "300px", 
         }}
       >
         <h2>Reviews</h2>
